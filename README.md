@@ -1,6 +1,7 @@
 # E-commerce Analytics Dashboard (Indian Market)
 
-![Dashboard Preview](file:///C:/Users/saath/OneDrive/Pictures/Screenshots/Screenshot%202025-06-25%20095307.png)
+![Dashboard Preview]![image](https://github.com/user-attachments/assets/840527e4-3f79-4897-971b-7d6f8d2131c1)
+
 
 A modern, responsive e-commerce analytics dashboard built with React, specifically tailored for the Indian market with localized data and features.
 
