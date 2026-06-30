@@ -1,0 +1,1523 @@
+{
+  "kpis": {
+    "totalRevenue": 17743429.18,
+    "totalOrders": 36969,
+    "totalCustomers": 5878,
+    "avgOrderValue": 479.95,
+    "repeatPurchaseRate": 72.4,
+    "dateRange": {
+      "start": "2009-12-01",
+      "end": "2011-12-09"
+    }
+  },
+  "monthlyTrend": [
+    {
+      "month": "2009-12",
+      "revenue": 686654.16,
+      "orders": 1512,
+      "customers": 955
+    },
+    {
+      "month": "2010-01",
+      "revenue": 557319.06,
+      "orders": 1011,
+      "customers": 720
+    },
+    {
+      "month": "2010-02",
+      "revenue": 506371.07,
+      "orders": 1104,
+      "customers": 772
+    },
+    {
+      "month": "2010-03",
+      "revenue": 699608.99,
+      "orders": 1524,
+      "customers": 1057
+    },
+    {
+      "month": "2010-04",
+      "revenue": 594609.19,
+      "orders": 1329,
+      "customers": 942
+    },
+    {
+      "month": "2010-05",
+      "revenue": 599985.79,
+      "orders": 1377,
+      "customers": 966
+    },
+    {
+      "month": "2010-06",
+      "revenue": 639066.58,
+      "orders": 1497,
+      "customers": 1041
+    },
+    {
+      "month": "2010-07",
+      "revenue": 591636.74,
+      "orders": 1381,
+      "customers": 928
+    },
+    {
+      "month": "2010-08",
+      "revenue": 604242.65,
+      "orders": 1293,
+      "customers": 911
+    },
+    {
+      "month": "2010-09",
+      "revenue": 831615.0,
+      "orders": 1689,
+      "customers": 1145
+    },
+    {
+      "month": "2010-10",
+      "revenue": 1036680.0,
+      "orders": 2133,
+      "customers": 1497
+    },
+    {
+      "month": "2010-11",
+      "revenue": 1172336.04,
+      "orders": 2587,
+      "customers": 1607
+    },
+    {
+      "month": "2010-12",
+      "revenue": 884591.89,
+      "orders": 1400,
+      "customers": 885
+    },
+    {
+      "month": "2011-01",
+      "revenue": 569445.04,
+      "orders": 987,
+      "customers": 741
+    },
+    {
+      "month": "2011-02",
+      "revenue": 447137.35,
+      "orders": 997,
+      "customers": 758
+    },
+    {
+      "month": "2011-03",
+      "revenue": 595500.76,
+      "orders": 1321,
+      "customers": 974
+    },
+    {
+      "month": "2011-04",
+      "revenue": 469200.36,
+      "orders": 1149,
+      "customers": 856
+    },
+    {
+      "month": "2011-05",
+      "revenue": 678594.56,
+      "orders": 1555,
+      "customers": 1056
+    },
+    {
+      "month": "2011-06",
+      "revenue": 661213.69,
+      "orders": 1393,
+      "customers": 991
+    },
+    {
+      "month": "2011-07",
+      "revenue": 600091.01,
+      "orders": 1331,
+      "customers": 949
+    },
+    {
+      "month": "2011-08",
+      "revenue": 645343.9,
+      "orders": 1280,
+      "customers": 935
+    },
+    {
+      "month": "2011-09",
+      "revenue": 952838.38,
+      "orders": 1755,
+      "customers": 1266
+    },
+    {
+      "month": "2011-10",
+      "revenue": 1039318.79,
+      "orders": 1929,
+      "customers": 1364
+    },
+    {
+      "month": "2011-11",
+      "revenue": 1161817.38,
+      "orders": 2657,
+      "customers": 1664
+    },
+    {
+      "month": "2011-12",
+      "revenue": 518210.79,
+      "orders": 778,
+      "customers": 615
+    }
+  ],
+  "segments": [
+    {
+      "segment": "At Risk",
+      "customers": 227,
+      "revenue": 1018866.68
+    },
+    {
+      "segment": "Can't Lose Them",
+      "customers": 63,
+      "revenue": 181240.53
+    },
+    {
+      "segment": "Champions",
+      "customers": 1300,
+      "revenue": 12128115.56
+    },
+    {
+      "segment": "Hibernating",
+      "customers": 1460,
+      "revenue": 485881.39
+    },
+    {
+      "segment": "Lost",
+      "customers": 105,
+      "revenue": 124435.54
+    },
+    {
+      "segment": "Loyal Customers",
+      "customers": 1403,
+      "revenue": 2713960.75
+    },
+    {
+      "segment": "Needs Attention",
+      "customers": 597,
+      "revenue": 615108.81
+    },
+    {
+      "segment": "New Customers",
+      "customers": 443,
+      "revenue": 394638.61
+    },
+    {
+      "segment": "Potential Loyalists",
+      "customers": 280,
+      "revenue": 81181.3
+    }
+  ],
+  "countries": [
+    {
+      "country": "United Kingdom",
+      "revenue": 14723147.52,
+      "orders": 33541
+    },
+    {
+      "country": "EIRE",
+      "revenue": 621631.11,
+      "orders": 567
+    },
+    {
+      "country": "Netherlands",
+      "revenue": 554232.34,
+      "orders": 228
+    },
+    {
+      "country": "Germany",
+      "revenue": 431262.46,
+      "orders": 789
+    },
+    {
+      "country": "France",
+      "revenue": 355257.47,
+      "orders": 614
+    },
+    {
+      "country": "Australia",
+      "revenue": 169968.11,
+      "orders": 95
+    },
+    {
+      "country": "Spain",
+      "revenue": 109178.53,
+      "orders": 154
+    },
+    {
+      "country": "Switzerland",
+      "revenue": 100365.34,
+      "orders": 90
+    },
+    {
+      "country": "Sweden",
+      "revenue": 91549.72,
+      "orders": 104
+    },
+    {
+      "country": "Denmark",
+      "revenue": 69862.19,
+      "orders": 43
+    }
+  ],
+  "topProducts": [
+    {
+      "product": "REGENCY CAKESTAND 3 TIER",
+      "revenue": 286486.3,
+      "units": 24899
+    },
+    {
+      "product": "WHITE HANGING HEART T-LIGHT HOLDER",
+      "revenue": 252072.46,
+      "units": 93640
+    },
+    {
+      "product": "PAPER CRAFT , LITTLE BIRDIE",
+      "revenue": 168469.6,
+      "units": 80995
+    },
+    {
+      "product": "Manual",
+      "revenue": 152340.57,
+      "units": 9803
+    },
+    {
+      "product": "JUMBO BAG RED RETROSPOT",
+      "revenue": 136980.08,
+      "units": 75759
+    },
+    {
+      "product": "ASSORTED COLOUR BIRD ORNAMENT",
+      "revenue": 127074.17,
+      "units": 79913
+    },
+    {
+      "product": "POSTAGE",
+      "revenue": 126563.04,
+      "units": 5333
+    },
+    {
+      "product": "PARTY BUNTING",
+      "revenue": 103880.23,
+      "units": 23607
+    },
+    {
+      "product": "MEDIUM CERAMIC TOP STORAGE JAR",
+      "revenue": 81416.73,
+      "units": 77916
+    },
+    {
+      "product": "PAPER CHAIN KIT 50'S CHRISTMAS ",
+      "revenue": 79594.33,
+      "units": 29477
+    }
+  ],
+  "cohorts": [
+    {
+      "cohort": "2009-12",
+      "month": 0,
+      "customers": 955,
+      "size": 955,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2009-12",
+      "month": 1,
+      "customers": 337,
+      "size": 955,
+      "retention_pct": 35.3
+    },
+    {
+      "cohort": "2009-12",
+      "month": 2,
+      "customers": 319,
+      "size": 955,
+      "retention_pct": 33.4
+    },
+    {
+      "cohort": "2009-12",
+      "month": 3,
+      "customers": 406,
+      "size": 955,
+      "retention_pct": 42.5
+    },
+    {
+      "cohort": "2009-12",
+      "month": 4,
+      "customers": 363,
+      "size": 955,
+      "retention_pct": 38.0
+    },
+    {
+      "cohort": "2009-12",
+      "month": 5,
+      "customers": 343,
+      "size": 955,
+      "retention_pct": 35.9
+    },
+    {
+      "cohort": "2009-12",
+      "month": 6,
+      "customers": 360,
+      "size": 955,
+      "retention_pct": 37.7
+    },
+    {
+      "cohort": "2010-01",
+      "month": 0,
+      "customers": 383,
+      "size": 383,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2010-01",
+      "month": 1,
+      "customers": 79,
+      "size": 383,
+      "retention_pct": 20.6
+    },
+    {
+      "cohort": "2010-01",
+      "month": 2,
+      "customers": 119,
+      "size": 383,
+      "retention_pct": 31.1
+    },
+    {
+      "cohort": "2010-01",
+      "month": 3,
+      "customers": 117,
+      "size": 383,
+      "retention_pct": 30.5
+    },
+    {
+      "cohort": "2010-01",
+      "month": 4,
+      "customers": 101,
+      "size": 383,
+      "retention_pct": 26.4
+    },
+    {
+      "cohort": "2010-01",
+      "month": 5,
+      "customers": 115,
+      "size": 383,
+      "retention_pct": 30.0
+    },
+    {
+      "cohort": "2010-01",
+      "month": 6,
+      "customers": 99,
+      "size": 383,
+      "retention_pct": 25.8
+    },
+    {
+      "cohort": "2010-02",
+      "month": 0,
+      "customers": 374,
+      "size": 374,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2010-02",
+      "month": 1,
+      "customers": 89,
+      "size": 374,
+      "retention_pct": 23.8
+    },
+    {
+      "cohort": "2010-02",
+      "month": 2,
+      "customers": 84,
+      "size": 374,
+      "retention_pct": 22.5
+    },
+    {
+      "cohort": "2010-02",
+      "month": 3,
+      "customers": 109,
+      "size": 374,
+      "retention_pct": 29.1
+    },
+    {
+      "cohort": "2010-02",
+      "month": 4,
+      "customers": 92,
+      "size": 374,
+      "retention_pct": 24.6
+    },
+    {
+      "cohort": "2010-02",
+      "month": 5,
+      "customers": 75,
+      "size": 374,
+      "retention_pct": 20.1
+    },
+    {
+      "cohort": "2010-02",
+      "month": 6,
+      "customers": 72,
+      "size": 374,
+      "retention_pct": 19.3
+    },
+    {
+      "cohort": "2010-03",
+      "month": 0,
+      "customers": 443,
+      "size": 443,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2010-03",
+      "month": 1,
+      "customers": 84,
+      "size": 443,
+      "retention_pct": 19.0
+    },
+    {
+      "cohort": "2010-03",
+      "month": 2,
+      "customers": 102,
+      "size": 443,
+      "retention_pct": 23.0
+    },
+    {
+      "cohort": "2010-03",
+      "month": 3,
+      "customers": 107,
+      "size": 443,
+      "retention_pct": 24.2
+    },
+    {
+      "cohort": "2010-03",
+      "month": 4,
+      "customers": 103,
+      "size": 443,
+      "retention_pct": 23.3
+    },
+    {
+      "cohort": "2010-03",
+      "month": 5,
+      "customers": 90,
+      "size": 443,
+      "retention_pct": 20.3
+    },
+    {
+      "cohort": "2010-03",
+      "month": 6,
+      "customers": 109,
+      "size": 443,
+      "retention_pct": 24.6
+    },
+    {
+      "cohort": "2010-04",
+      "month": 0,
+      "customers": 294,
+      "size": 294,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2010-04",
+      "month": 1,
+      "customers": 57,
+      "size": 294,
+      "retention_pct": 19.4
+    },
+    {
+      "cohort": "2010-04",
+      "month": 2,
+      "customers": 57,
+      "size": 294,
+      "retention_pct": 19.4
+    },
+    {
+      "cohort": "2010-04",
+      "month": 3,
+      "customers": 48,
+      "size": 294,
+      "retention_pct": 16.3
+    },
+    {
+      "cohort": "2010-04",
+      "month": 4,
+      "customers": 54,
+      "size": 294,
+      "retention_pct": 18.4
+    },
+    {
+      "cohort": "2010-04",
+      "month": 5,
+      "customers": 66,
+      "size": 294,
+      "retention_pct": 22.4
+    },
+    {
+      "cohort": "2010-04",
+      "month": 6,
+      "customers": 81,
+      "size": 294,
+      "retention_pct": 27.6
+    },
+    {
+      "cohort": "2010-05",
+      "month": 0,
+      "customers": 254,
+      "size": 254,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2010-05",
+      "month": 1,
+      "customers": 40,
+      "size": 254,
+      "retention_pct": 15.7
+    },
+    {
+      "cohort": "2010-05",
+      "month": 2,
+      "customers": 43,
+      "size": 254,
+      "retention_pct": 16.9
+    },
+    {
+      "cohort": "2010-05",
+      "month": 3,
+      "customers": 44,
+      "size": 254,
+      "retention_pct": 17.3
+    },
+    {
+      "cohort": "2010-05",
+      "month": 4,
+      "customers": 45,
+      "size": 254,
+      "retention_pct": 17.7
+    },
+    {
+      "cohort": "2010-05",
+      "month": 5,
+      "customers": 65,
+      "size": 254,
+      "retention_pct": 25.6
+    },
+    {
+      "cohort": "2010-05",
+      "month": 6,
+      "customers": 54,
+      "size": 254,
+      "retention_pct": 21.3
+    },
+    {
+      "cohort": "2010-06",
+      "month": 0,
+      "customers": 270,
+      "size": 270,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2010-06",
+      "month": 1,
+      "customers": 47,
+      "size": 270,
+      "retention_pct": 17.4
+    },
+    {
+      "cohort": "2010-06",
+      "month": 2,
+      "customers": 51,
+      "size": 270,
+      "retention_pct": 18.9
+    },
+    {
+      "cohort": "2010-06",
+      "month": 3,
+      "customers": 55,
+      "size": 270,
+      "retention_pct": 20.4
+    },
+    {
+      "cohort": "2010-06",
+      "month": 4,
+      "customers": 62,
+      "size": 270,
+      "retention_pct": 23.0
+    },
+    {
+      "cohort": "2010-06",
+      "month": 5,
+      "customers": 77,
+      "size": 270,
+      "retention_pct": 28.5
+    },
+    {
+      "cohort": "2010-06",
+      "month": 6,
+      "customers": 34,
+      "size": 270,
+      "retention_pct": 12.6
+    },
+    {
+      "cohort": "2010-07",
+      "month": 0,
+      "customers": 186,
+      "size": 186,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2010-07",
+      "month": 1,
+      "customers": 29,
+      "size": 186,
+      "retention_pct": 15.6
+    },
+    {
+      "cohort": "2010-07",
+      "month": 2,
+      "customers": 34,
+      "size": 186,
+      "retention_pct": 18.3
+    },
+    {
+      "cohort": "2010-07",
+      "month": 3,
+      "customers": 55,
+      "size": 186,
+      "retention_pct": 29.6
+    },
+    {
+      "cohort": "2010-07",
+      "month": 4,
+      "customers": 54,
+      "size": 186,
+      "retention_pct": 29.0
+    },
+    {
+      "cohort": "2010-07",
+      "month": 5,
+      "customers": 26,
+      "size": 186,
+      "retention_pct": 14.0
+    },
+    {
+      "cohort": "2010-07",
+      "month": 6,
+      "customers": 21,
+      "size": 186,
+      "retention_pct": 11.3
+    },
+    {
+      "cohort": "2010-08",
+      "month": 0,
+      "customers": 162,
+      "size": 162,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2010-08",
+      "month": 1,
+      "customers": 33,
+      "size": 162,
+      "retention_pct": 20.4
+    },
+    {
+      "cohort": "2010-08",
+      "month": 2,
+      "customers": 48,
+      "size": 162,
+      "retention_pct": 29.6
+    },
+    {
+      "cohort": "2010-08",
+      "month": 3,
+      "customers": 52,
+      "size": 162,
+      "retention_pct": 32.1
+    },
+    {
+      "cohort": "2010-08",
+      "month": 4,
+      "customers": 28,
+      "size": 162,
+      "retention_pct": 17.3
+    },
+    {
+      "cohort": "2010-08",
+      "month": 5,
+      "customers": 19,
+      "size": 162,
+      "retention_pct": 11.7
+    },
+    {
+      "cohort": "2010-08",
+      "month": 6,
+      "customers": 16,
+      "size": 162,
+      "retention_pct": 9.9
+    },
+    {
+      "cohort": "2010-09",
+      "month": 0,
+      "customers": 243,
+      "size": 243,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2010-09",
+      "month": 1,
+      "customers": 55,
+      "size": 243,
+      "retention_pct": 22.6
+    },
+    {
+      "cohort": "2010-09",
+      "month": 2,
+      "customers": 57,
+      "size": 243,
+      "retention_pct": 23.5
+    },
+    {
+      "cohort": "2010-09",
+      "month": 3,
+      "customers": 30,
+      "size": 243,
+      "retention_pct": 12.3
+    },
+    {
+      "cohort": "2010-09",
+      "month": 4,
+      "customers": 22,
+      "size": 243,
+      "retention_pct": 9.1
+    },
+    {
+      "cohort": "2010-09",
+      "month": 5,
+      "customers": 25,
+      "size": 243,
+      "retention_pct": 10.3
+    },
+    {
+      "cohort": "2010-09",
+      "month": 6,
+      "customers": 33,
+      "size": 243,
+      "retention_pct": 13.6
+    },
+    {
+      "cohort": "2010-10",
+      "month": 0,
+      "customers": 377,
+      "size": 377,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2010-10",
+      "month": 1,
+      "customers": 97,
+      "size": 377,
+      "retention_pct": 25.7
+    },
+    {
+      "cohort": "2010-10",
+      "month": 2,
+      "customers": 55,
+      "size": 377,
+      "retention_pct": 14.6
+    },
+    {
+      "cohort": "2010-10",
+      "month": 3,
+      "customers": 47,
+      "size": 377,
+      "retention_pct": 12.5
+    },
+    {
+      "cohort": "2010-10",
+      "month": 4,
+      "customers": 33,
+      "size": 377,
+      "retention_pct": 8.8
+    },
+    {
+      "cohort": "2010-10",
+      "month": 5,
+      "customers": 31,
+      "size": 377,
+      "retention_pct": 8.2
+    },
+    {
+      "cohort": "2010-10",
+      "month": 6,
+      "customers": 49,
+      "size": 377,
+      "retention_pct": 13.0
+    },
+    {
+      "cohort": "2010-11",
+      "month": 0,
+      "customers": 325,
+      "size": 325,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2010-11",
+      "month": 1,
+      "customers": 57,
+      "size": 325,
+      "retention_pct": 17.5
+    },
+    {
+      "cohort": "2010-11",
+      "month": 2,
+      "customers": 30,
+      "size": 325,
+      "retention_pct": 9.2
+    },
+    {
+      "cohort": "2010-11",
+      "month": 3,
+      "customers": 31,
+      "size": 325,
+      "retention_pct": 9.5
+    },
+    {
+      "cohort": "2010-11",
+      "month": 4,
+      "customers": 25,
+      "size": 325,
+      "retention_pct": 7.7
+    },
+    {
+      "cohort": "2010-11",
+      "month": 5,
+      "customers": 28,
+      "size": 325,
+      "retention_pct": 8.6
+    },
+    {
+      "cohort": "2010-11",
+      "month": 6,
+      "customers": 42,
+      "size": 325,
+      "retention_pct": 12.9
+    },
+    {
+      "cohort": "2010-12",
+      "month": 0,
+      "customers": 76,
+      "size": 76,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2010-12",
+      "month": 1,
+      "customers": 7,
+      "size": 76,
+      "retention_pct": 9.2
+    },
+    {
+      "cohort": "2010-12",
+      "month": 2,
+      "customers": 4,
+      "size": 76,
+      "retention_pct": 5.3
+    },
+    {
+      "cohort": "2010-12",
+      "month": 3,
+      "customers": 7,
+      "size": 76,
+      "retention_pct": 9.2
+    },
+    {
+      "cohort": "2010-12",
+      "month": 4,
+      "customers": 9,
+      "size": 76,
+      "retention_pct": 11.8
+    },
+    {
+      "cohort": "2010-12",
+      "month": 5,
+      "customers": 5,
+      "size": 76,
+      "retention_pct": 6.6
+    },
+    {
+      "cohort": "2010-12",
+      "month": 6,
+      "customers": 4,
+      "size": 76,
+      "retention_pct": 5.3
+    },
+    {
+      "cohort": "2011-01",
+      "month": 0,
+      "customers": 71,
+      "size": 71,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2011-01",
+      "month": 1,
+      "customers": 12,
+      "size": 71,
+      "retention_pct": 16.9
+    },
+    {
+      "cohort": "2011-01",
+      "month": 2,
+      "customers": 15,
+      "size": 71,
+      "retention_pct": 21.1
+    },
+    {
+      "cohort": "2011-01",
+      "month": 3,
+      "customers": 14,
+      "size": 71,
+      "retention_pct": 19.7
+    },
+    {
+      "cohort": "2011-01",
+      "month": 4,
+      "customers": 15,
+      "size": 71,
+      "retention_pct": 21.1
+    },
+    {
+      "cohort": "2011-01",
+      "month": 5,
+      "customers": 11,
+      "size": 71,
+      "retention_pct": 15.5
+    },
+    {
+      "cohort": "2011-01",
+      "month": 6,
+      "customers": 11,
+      "size": 71,
+      "retention_pct": 15.5
+    },
+    {
+      "cohort": "2011-02",
+      "month": 0,
+      "customers": 124,
+      "size": 124,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2011-02",
+      "month": 1,
+      "customers": 20,
+      "size": 124,
+      "retention_pct": 16.1
+    },
+    {
+      "cohort": "2011-02",
+      "month": 2,
+      "customers": 19,
+      "size": 124,
+      "retention_pct": 15.3
+    },
+    {
+      "cohort": "2011-02",
+      "month": 3,
+      "customers": 23,
+      "size": 124,
+      "retention_pct": 18.5
+    },
+    {
+      "cohort": "2011-02",
+      "month": 4,
+      "customers": 27,
+      "size": 124,
+      "retention_pct": 21.8
+    },
+    {
+      "cohort": "2011-02",
+      "month": 5,
+      "customers": 19,
+      "size": 124,
+      "retention_pct": 15.3
+    },
+    {
+      "cohort": "2011-02",
+      "month": 6,
+      "customers": 19,
+      "size": 124,
+      "retention_pct": 15.3
+    },
+    {
+      "cohort": "2011-03",
+      "month": 0,
+      "customers": 179,
+      "size": 179,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2011-03",
+      "month": 1,
+      "customers": 33,
+      "size": 179,
+      "retention_pct": 18.4
+    },
+    {
+      "cohort": "2011-03",
+      "month": 2,
+      "customers": 39,
+      "size": 179,
+      "retention_pct": 21.8
+    },
+    {
+      "cohort": "2011-03",
+      "month": 3,
+      "customers": 36,
+      "size": 179,
+      "retention_pct": 20.1
+    },
+    {
+      "cohort": "2011-03",
+      "month": 4,
+      "customers": 40,
+      "size": 179,
+      "retention_pct": 22.3
+    },
+    {
+      "cohort": "2011-03",
+      "month": 5,
+      "customers": 27,
+      "size": 179,
+      "retention_pct": 15.1
+    },
+    {
+      "cohort": "2011-03",
+      "month": 6,
+      "customers": 37,
+      "size": 179,
+      "retention_pct": 20.7
+    },
+    {
+      "cohort": "2011-04",
+      "month": 0,
+      "customers": 106,
+      "size": 106,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2011-04",
+      "month": 1,
+      "customers": 27,
+      "size": 106,
+      "retention_pct": 25.5
+    },
+    {
+      "cohort": "2011-04",
+      "month": 2,
+      "customers": 21,
+      "size": 106,
+      "retention_pct": 19.8
+    },
+    {
+      "cohort": "2011-04",
+      "month": 3,
+      "customers": 21,
+      "size": 106,
+      "retention_pct": 19.8
+    },
+    {
+      "cohort": "2011-04",
+      "month": 4,
+      "customers": 19,
+      "size": 106,
+      "retention_pct": 17.9
+    },
+    {
+      "cohort": "2011-04",
+      "month": 5,
+      "customers": 25,
+      "size": 106,
+      "retention_pct": 23.6
+    },
+    {
+      "cohort": "2011-04",
+      "month": 6,
+      "customers": 19,
+      "size": 106,
+      "retention_pct": 17.9
+    },
+    {
+      "cohort": "2011-05",
+      "month": 0,
+      "customers": 111,
+      "size": 111,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2011-05",
+      "month": 1,
+      "customers": 26,
+      "size": 111,
+      "retention_pct": 23.4
+    },
+    {
+      "cohort": "2011-05",
+      "month": 2,
+      "customers": 27,
+      "size": 111,
+      "retention_pct": 24.3
+    },
+    {
+      "cohort": "2011-05",
+      "month": 3,
+      "customers": 18,
+      "size": 111,
+      "retention_pct": 16.2
+    },
+    {
+      "cohort": "2011-05",
+      "month": 4,
+      "customers": 24,
+      "size": 111,
+      "retention_pct": 21.6
+    },
+    {
+      "cohort": "2011-05",
+      "month": 5,
+      "customers": 23,
+      "size": 111,
+      "retention_pct": 20.7
+    },
+    {
+      "cohort": "2011-05",
+      "month": 6,
+      "customers": 29,
+      "size": 111,
+      "retention_pct": 26.1
+    },
+    {
+      "cohort": "2011-06",
+      "month": 0,
+      "customers": 108,
+      "size": 108,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2011-06",
+      "month": 1,
+      "customers": 25,
+      "size": 108,
+      "retention_pct": 23.1
+    },
+    {
+      "cohort": "2011-06",
+      "month": 2,
+      "customers": 23,
+      "size": 108,
+      "retention_pct": 21.3
+    },
+    {
+      "cohort": "2011-06",
+      "month": 3,
+      "customers": 29,
+      "size": 108,
+      "retention_pct": 26.9
+    },
+    {
+      "cohort": "2011-06",
+      "month": 4,
+      "customers": 22,
+      "size": 108,
+      "retention_pct": 20.4
+    },
+    {
+      "cohort": "2011-06",
+      "month": 5,
+      "customers": 31,
+      "size": 108,
+      "retention_pct": 28.7
+    },
+    {
+      "cohort": "2011-06",
+      "month": 6,
+      "customers": 9,
+      "size": 108,
+      "retention_pct": 8.3
+    },
+    {
+      "cohort": "2011-07",
+      "month": 0,
+      "customers": 102,
+      "size": 102,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2011-07",
+      "month": 1,
+      "customers": 22,
+      "size": 102,
+      "retention_pct": 21.6
+    },
+    {
+      "cohort": "2011-07",
+      "month": 2,
+      "customers": 31,
+      "size": 102,
+      "retention_pct": 30.4
+    },
+    {
+      "cohort": "2011-07",
+      "month": 3,
+      "customers": 28,
+      "size": 102,
+      "retention_pct": 27.5
+    },
+    {
+      "cohort": "2011-07",
+      "month": 4,
+      "customers": 35,
+      "size": 102,
+      "retention_pct": 34.3
+    },
+    {
+      "cohort": "2011-07",
+      "month": 5,
+      "customers": 16,
+      "size": 102,
+      "retention_pct": 15.7
+    },
+    {
+      "cohort": "2011-08",
+      "month": 0,
+      "customers": 106,
+      "size": 106,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2011-08",
+      "month": 1,
+      "customers": 29,
+      "size": 106,
+      "retention_pct": 27.4
+    },
+    {
+      "cohort": "2011-08",
+      "month": 2,
+      "customers": 33,
+      "size": 106,
+      "retention_pct": 31.1
+    },
+    {
+      "cohort": "2011-08",
+      "month": 3,
+      "customers": 28,
+      "size": 106,
+      "retention_pct": 26.4
+    },
+    {
+      "cohort": "2011-08",
+      "month": 4,
+      "customers": 18,
+      "size": 106,
+      "retention_pct": 17.0
+    },
+    {
+      "cohort": "2011-09",
+      "month": 0,
+      "customers": 189,
+      "size": 189,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2011-09",
+      "month": 1,
+      "customers": 51,
+      "size": 189,
+      "retention_pct": 27.0
+    },
+    {
+      "cohort": "2011-09",
+      "month": 2,
+      "customers": 71,
+      "size": 189,
+      "retention_pct": 37.6
+    },
+    {
+      "cohort": "2011-09",
+      "month": 3,
+      "customers": 28,
+      "size": 189,
+      "retention_pct": 14.8
+    },
+    {
+      "cohort": "2011-10",
+      "month": 0,
+      "customers": 221,
+      "size": 221,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2011-10",
+      "month": 1,
+      "customers": 71,
+      "size": 221,
+      "retention_pct": 32.1
+    },
+    {
+      "cohort": "2011-10",
+      "month": 2,
+      "customers": 35,
+      "size": 221,
+      "retention_pct": 15.8
+    },
+    {
+      "cohort": "2011-11",
+      "month": 0,
+      "customers": 191,
+      "size": 191,
+      "retention_pct": 100.0
+    },
+    {
+      "cohort": "2011-11",
+      "month": 1,
+      "customers": 27,
+      "size": 191,
+      "retention_pct": 14.1
+    },
+    {
+      "cohort": "2011-12",
+      "month": 0,
+      "customers": 28,
+      "size": 28,
+      "retention_pct": 100.0
+    }
+  ],
+  "churn": {
+    "breakdown": [
+      {
+        "risk": "Healthy",
+        "customers": 3240,
+        "revenue": 13481293.23
+      },
+      {
+        "risk": "High risk",
+        "customers": 998,
+        "revenue": 3524024.02
+      },
+      {
+        "risk": "Watch",
+        "customers": 1640,
+        "revenue": 738111.93
+      }
+    ],
+    "revenueAtRisk": 3524024.01,
+    "topAtRisk": [
+      {
+        "customerId": "14156",
+        "country": "EIRE",
+        "monetary": 313946.37,
+        "recencyDays": 10,
+        "frequency": 156
+      },
+      {
+        "customerId": "16029",
+        "country": "United Kingdom",
+        "monetary": 122209.14,
+        "recencyDays": 39,
+        "frequency": 107
+      },
+      {
+        "customerId": "12931",
+        "country": "United Kingdom",
+        "monetary": 92347.34,
+        "recencyDays": 22,
+        "frequency": 57
+      },
+      {
+        "customerId": "12346",
+        "country": "United Kingdom",
+        "monetary": 77556.46,
+        "recencyDays": 326,
+        "frequency": 12
+      },
+      {
+        "customerId": "16754",
+        "country": "United Kingdom",
+        "monetary": 67502.47,
+        "recencyDays": 372,
+        "frequency": 29
+      },
+      {
+        "customerId": "16422",
+        "country": "United Kingdom",
+        "monetary": 63651.47,
+        "recencyDays": 17,
+        "frequency": 109
+      },
+      {
+        "customerId": "14680",
+        "country": "United Kingdom",
+        "monetary": 57412.77,
+        "recencyDays": 25,
+        "frequency": 58
+      },
+      {
+        "customerId": "17850",
+        "country": "United Kingdom",
+        "monetary": 56600.08,
+        "recencyDays": 372,
+        "frequency": 155
+      },
+      {
+        "customerId": "13093",
+        "country": "United Kingdom",
+        "monetary": 54943.65,
+        "recencyDays": 276,
+        "frequency": 55
+      },
+      {
+        "customerId": "15749",
+        "country": "United Kingdom",
+        "monetary": 44534.3,
+        "recencyDays": 235,
+        "frequency": 3
+      },
+      {
+        "customerId": "15098",
+        "country": "United Kingdom",
+        "monetary": 39916.5,
+        "recencyDays": 182,
+        "frequency": 3
+      },
+      {
+        "customerId": "13902",
+        "country": "Denmark",
+        "monetary": 34095.26,
+        "recencyDays": 632,
+        "frequency": 5
+      },
+      {
+        "customerId": "15513",
+        "country": "United Kingdom",
+        "monetary": 27750.55,
+        "recencyDays": 33,
+        "frequency": 35
+      },
+      {
+        "customerId": "17865",
+        "country": "United Kingdom",
+        "monetary": 26374.39,
+        "recencyDays": 31,
+        "frequency": 46
+      },
+      {
+        "customerId": "13802",
+        "country": "United Kingdom",
+        "monetary": 26259.11,
+        "recencyDays": 139,
+        "frequency": 19
+      }
+    ]
+  }
+}
