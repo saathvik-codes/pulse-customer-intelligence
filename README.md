@@ -29,6 +29,8 @@ flag who's actually at risk of churning — with a number attached, not a vibe.
 
 - **Analysis**: Python, pandas — ETL, RFM scoring, cohort math, churn logic
   (`/analysis`, fully scripted and re-runnable)
+- **SQL**: the same RFM/cohort/churn logic, also written as standard SQL
+  against DuckDB (`/analysis/sql`) — window functions, CTEs, no pandas
 - **Dashboard**: Next.js 16, TypeScript, Tailwind CSS, Recharts
 - **Data**: [UCI "Online Retail II"](https://doi.org/10.24432/C5CG6D) — a real
   UK-based online retailer's full transaction history (not synthetic)
@@ -57,6 +59,20 @@ target that doesn't exist, churn risk is defined transparently:
 
 That's a rule I can defend in an interview, not a model whose reasoning I'd
 have to hand-wave. See `analysis/churn.py`.
+
+### The SQL layer
+`/analysis/sql` reimplements RFM scoring, cohort retention, and churn-risk
+flagging as plain SQL against [DuckDB](https://duckdb.org/) — an embedded
+analytical engine, so the queries run directly against the same cleaned
+transaction data with no server to stand up. It's not there to duplicate the
+pandas pipeline for its own sake; it's there because SQL — window functions
+(`NTILE`, `LAG`), CTEs, date-truncation grouping — is the skill most
+data-analyst interviews actually probe for, and the dashboard's pandas
+pipeline doesn't demonstrate it on its own. Run it with:
+
+```bash
+cd analysis/sql && python run.py
+```
 
 ### Why pre-computed JSON, not a live database
 The dataset is closed/historical — it doesn't get new transactions — so
@@ -91,6 +107,7 @@ analysis/            Python ETL + analysis pipeline (the real work)
   cohort.py             Monthly cohort retention calculation
   churn.py              Rule-based churn-risk classification
   export.py             Orchestrates the above, writes dashboard JSON
+  sql/                  Same core analyses, written in SQL (DuckDB)
 app/                  Next.js App Router pages
 components/           Dashboard UI (charts, KPI cards, cohort heatmap)
 lib/                  Shared types, formatters, and the data the UI reads

@@ -44,6 +44,8 @@ next-env.d.ts
 analysis/data/*.xlsx
 analysis/data/*.zip
 analysis/__pycache__/
+analysis/sql/__pycache__/
 analysis/.venv/
+*.duckdb
 
 .vercel
