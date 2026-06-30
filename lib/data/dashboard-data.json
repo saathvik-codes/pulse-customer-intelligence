@@ -175,38 +175,38 @@
     },
     {
       "segment": "Champions",
-      "customers": 1300,
-      "revenue": 12128115.56
+      "customers": 1293,
+      "revenue": 12096578.39
     },
     {
       "segment": "Hibernating",
-      "customers": 1460,
-      "revenue": 485881.39
+      "customers": 1463,
+      "revenue": 487087.15
     },
     {
       "segment": "Lost",
-      "customers": 105,
-      "revenue": 124435.54
+      "customers": 104,
+      "revenue": 123775.7
     },
     {
       "segment": "Loyal Customers",
-      "customers": 1403,
-      "revenue": 2713960.75
+      "customers": 1409,
+      "revenue": 2744497.65
     },
     {
       "segment": "Needs Attention",
-      "customers": 597,
-      "revenue": 615108.81
+      "customers": 598,
+      "revenue": 616109.08
     },
     {
       "segment": "New Customers",
-      "customers": 443,
-      "revenue": 394638.61
+      "customers": 440,
+      "revenue": 394217.12
     },
     {
       "segment": "Potential Loyalists",
-      "customers": 280,
-      "revenue": 81181.3
+      "customers": 281,
+      "revenue": 81056.87
     }
   ],
   "countries": [
@@ -278,11 +278,6 @@
       "units": 80995
     },
     {
-      "product": "Manual",
-      "revenue": 152340.57,
-      "units": 9803
-    },
-    {
       "product": "JUMBO BAG RED RETROSPOT",
       "revenue": 136980.08,
       "units": 75759
@@ -291,11 +286,6 @@
       "product": "ASSORTED COLOUR BIRD ORNAMENT",
       "revenue": 127074.17,
       "units": 79913
-    },
-    {
-      "product": "POSTAGE",
-      "revenue": 126563.04,
-      "units": 5333
     },
     {
       "product": "PARTY BUNTING",
@@ -311,6 +301,16 @@
       "product": "PAPER CHAIN KIT 50'S CHRISTMAS ",
       "revenue": 79594.33,
       "units": 29477
+    },
+    {
+      "product": "CHILLI LIGHTS",
+      "revenue": 72860.14,
+      "units": 15735
+    },
+    {
+      "product": "BLACK RECORD COVER FRAME",
+      "revenue": 67209.44,
+      "units": 19629
     }
   ],
   "cohorts": [
@@ -1397,8 +1397,8 @@
     "breakdown": [
       {
         "risk": "Healthy",
-        "customers": 3240,
-        "revenue": 13481293.23
+        "customers": 3237,
+        "revenue": 13480087.47
       },
       {
         "risk": "High risk",
@@ -1407,8 +1407,8 @@
       },
       {
         "risk": "Watch",
-        "customers": 1640,
-        "revenue": 738111.93
+        "customers": 1643,
+        "revenue": 739317.69
       }
     ],
     "revenueAtRisk": 3524024.01,
@@ -1519,5 +1519,11 @@
         "frequency": 19
       }
     ]
+  },
+  "cancellations": {
+    "cancelledOrders": 7901,
+    "totalOrders": 44876,
+    "cancelledValue": 1095136.79,
+    "cancellationRate": 17.6
   }
 }

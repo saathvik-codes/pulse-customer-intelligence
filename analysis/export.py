@@ -15,10 +15,18 @@ import pandas as pd
 
 from churn import compute_churn_risk
 from cohort import compute_cohort_retention
-from etl import load_clean
+from etl import cancellation_summary, load_clean
 from rfm import compute_rfm
 
 OUTPUT_DIR = Path(__file__).parent / "output"
+
+# This dataset bundles a handful of non-product administrative line items
+# under the same Invoice/StockCode schema as real products — postage,
+# manual price corrections, bank charges, and a few internal test codes.
+# They're legitimate revenue (real money collected) so they stay in the
+# KPI/revenue totals, but they're not "products" and would be a visible,
+# easy-to-spot data-cleaning miss if they showed up in a top-products list.
+NON_PRODUCT_STOCK_CODES = {"POST", "M", "D", "C2", "DOT", "PADS", "BANK CHARGES", "ADJUST", "ADJUST2", "AMAZONFEE", "TEST001", "TEST002", "S", "CRUK"}
 
 
 def build_kpis(transactions: pd.DataFrame, rfm: pd.DataFrame) -> dict:
@@ -72,8 +80,9 @@ def build_country_summary(transactions: pd.DataFrame, top_n: int = 10) -> list[d
 
 
 def build_top_products(transactions: pd.DataFrame, top_n: int = 10) -> list[dict]:
+    products_only = transactions[~transactions["stock_code"].astype(str).str.upper().isin(NON_PRODUCT_STOCK_CODES)]
     summary = (
-        transactions.groupby("description")
+        products_only.groupby("description")
         .agg(revenue=("revenue", "sum"), units=("quantity", "sum"))
         .sort_values("revenue", ascending=False)
         .head(top_n)
@@ -122,6 +131,7 @@ def main() -> None:
         "topProducts": build_top_products(transactions),
         "cohorts": cohorts,
         "churn": build_churn_summary(risk),
+        "cancellations": cancellation_summary(),
     }
 
     out_path = OUTPUT_DIR / "dashboard-data.json"

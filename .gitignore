@@ -45,3 +45,5 @@ analysis/data/*.xlsx
 analysis/data/*.zip
 analysis/__pycache__/
 analysis/.venv/
+
+.vercel

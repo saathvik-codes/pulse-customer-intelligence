@@ -36,8 +36,7 @@ def clean(df: pd.DataFrame) -> pd.DataFrame:
     df = df.dropna(subset=["customer_id"])
     df["customer_id"] = df["customer_id"].astype(int).astype(str)
 
-    # Invoice numbers prefixed "C" are cancellations; keep them aside for a
-    # separate returns metric rather than silently discarding the signal.
+    # Invoice numbers prefixed "C" are cancellations.
     df["is_cancellation"] = df["invoice"].astype(str).str.startswith("C")
 
     # Negative/zero quantity or price on a non-cancellation row is a data
@@ -52,6 +51,23 @@ def clean(df: pd.DataFrame) -> pd.DataFrame:
 
 def load_clean() -> pd.DataFrame:
     return clean(load_raw())
+
+
+def cancellation_summary() -> dict:
+    """Separate from the main sellable-transactions frame: cancelled orders
+    aren't part of revenue, but the rate is its own useful signal."""
+    df = load_raw()
+    df = df.rename(columns={"Invoice": "invoice", "Customer ID": "customer_id", "Quantity": "quantity", "Price": "unit_price"})
+    df = df.dropna(subset=["customer_id"])
+    is_cancel = df["invoice"].astype(str).str.startswith("C")
+    cancelled = df[is_cancel]
+    cancelled_value = float((cancelled["quantity"].abs() * cancelled["unit_price"]).sum())
+    return {
+        "cancelledOrders": int(cancelled["invoice"].nunique()),
+        "totalOrders": int(df["invoice"].nunique()),
+        "cancelledValue": round(cancelled_value, 2),
+        "cancellationRate": round(cancelled["invoice"].nunique() / df["invoice"].nunique() * 100, 1),
+    }
 
 
 if __name__ == "__main__":

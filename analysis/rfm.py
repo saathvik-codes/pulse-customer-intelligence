@@ -22,9 +22,13 @@ def compute_rfm(transactions: pd.DataFrame, snapshot_date: pd.Timestamp | None =
     )
     per_customer["recency_days"] = (snapshot_date - per_customer["last_purchase"]).dt.days
 
-    # qcut with duplicates="drop" handles ties in this dataset's frequency
-    # distribution (many customers share the same order count).
-    per_customer["r_score"] = pd.qcut(per_customer["recency_days"], 5, labels=[5, 4, 3, 2, 1], duplicates="drop").astype(int)
+    # Rank before qcut on all three dimensions: this dataset has heavy ties
+    # (many customers share the same order count, monetary total, or even
+    # purchase day), and qcut on raw values + `duplicates="drop"` would
+    # silently produce fewer than 5 bins while still expecting 5 labels —
+    # that's a latent crash waiting for a slightly different data cut.
+    # Ranking first guarantees exactly 5 evenly-sized bins every time.
+    per_customer["r_score"] = pd.qcut(per_customer["recency_days"].rank(method="first", ascending=False), 5, labels=[1, 2, 3, 4, 5]).astype(int)
     per_customer["f_score"] = pd.qcut(per_customer["frequency"].rank(method="first"), 5, labels=[1, 2, 3, 4, 5]).astype(int)
     per_customer["m_score"] = pd.qcut(per_customer["monetary"].rank(method="first"), 5, labels=[1, 2, 3, 4, 5]).astype(int)
     per_customer["rfm_score"] = per_customer["r_score"] + per_customer["f_score"] + per_customer["m_score"]

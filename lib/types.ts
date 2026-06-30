@@ -17,4 +17,10 @@ export type DashboardData = {
     revenueAtRisk: number;
     topAtRisk: { customerId: string; country: string; monetary: number; recencyDays: number; frequency: number }[];
   };
+  cancellations: {
+    cancelledOrders: number;
+    totalOrders: number;
+    cancelledValue: number;
+    cancellationRate: number;
+  };
 };
