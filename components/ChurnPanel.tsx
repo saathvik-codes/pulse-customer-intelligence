@@ -1,6 +1,7 @@
 "use client";
 
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
+import { ExportButton } from "@/components/ExportButton";
 import { dashboardData, formatGBP, formatNumber, riskColor } from "@/lib/data";
 
 export function ChurnPanel() {
@@ -8,12 +9,15 @@ export function ChurnPanel() {
 
   return (
     <div className="card p-5">
-      <div className="mb-4">
-        <h2 className="text-sm font-semibold text-slate-900">Churn Risk</h2>
-        <p className="text-xs text-slate-500">
-          Rule-based, not a black box: repeat customers (3+ orders) gone quiet 1.5x longer than their own average
-          order gap are flagged &quot;High risk&quot;.
-        </p>
+      <div className="mb-4 flex items-start justify-between gap-3">
+        <div>
+          <h2 className="text-sm font-semibold text-slate-900">Churn Risk</h2>
+          <p className="text-xs text-slate-500">
+            Rule-based, not a black box: repeat customers (3+ orders) gone quiet 1.5x longer than their own average
+            order gap are flagged &quot;High risk&quot;.
+          </p>
+        </div>
+        <ExportButton filename="pulse-at-risk-customers.csv" rows={topAtRisk} />
       </div>
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-[180px_1fr]">
         <ResponsiveContainer width="100%" height={180}>

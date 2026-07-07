@@ -1,10 +1,14 @@
+import { ExportButton } from "@/components/ExportButton";
 import { dashboardData, formatGBP, formatNumber } from "@/lib/data";
 
 export function TopLists() {
   return (
     <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
       <div className="card p-5">
-        <h2 className="mb-4 text-sm font-semibold text-slate-900">Top Products by Revenue</h2>
+        <div className="mb-4 flex items-center justify-between gap-3">
+          <h2 className="text-sm font-semibold text-slate-900">Top Products by Revenue</h2>
+          <ExportButton filename="pulse-top-products.csv" rows={dashboardData.topProducts} />
+        </div>
         <ol className="space-y-2.5">
           {dashboardData.topProducts.slice(0, 8).map((p, i) => (
             <li key={p.product} className="flex items-center justify-between gap-3 text-sm">
@@ -19,7 +23,10 @@ export function TopLists() {
       </div>
 
       <div className="card p-5">
-        <h2 className="mb-4 text-sm font-semibold text-slate-900">Revenue by Market</h2>
+        <div className="mb-4 flex items-center justify-between gap-3">
+          <h2 className="text-sm font-semibold text-slate-900">Revenue by Market</h2>
+          <ExportButton filename="pulse-top-markets.csv" rows={dashboardData.countries} />
+        </div>
         <ol className="space-y-2.5">
           {dashboardData.countries.slice(0, 8).map((c, i) => (
             <li key={c.country} className="flex items-center justify-between gap-3 text-sm">
