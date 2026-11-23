@@ -63,7 +63,10 @@ export function SegmentBreakdown() {
           </span>
         </div>
       ) : (
-        <p className="mt-3 text-[11px] text-faint">Click a segment to see its detail.</p>
+        <div className="mt-3 flex items-center gap-4">
+          <img src="/illustrations/pl-empty-segments.webp" alt="" width={96} height={72} className="h-[72px] w-24 shrink-0 object-contain" />
+          <p className="text-xs text-muted">Click a segment to see its customers, revenue and share.</p>
+        </div>
       )}
     </div>
   );

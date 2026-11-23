@@ -1,0 +1,193 @@
+// =====================================================================================================================
+// Pulse: customer intelligence in Power BI.   Paste each block in the order shown (the guide says where).
+// Source of truth for every definition is the Python pipeline in /analysis; analysis/check_dax_logic.py proves
+// this DAX logic reproduces its numbers. Load CustomerID as Whole Number in BOTH tables.
+// =====================================================================================================================
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// 1. CALCULATED TABLES  (Modeling > New table)
+// ---------------------------------------------------------------------------------------------------------------------
+
+// One row holding the "as of" date: the day after the last order in the data. Read by every recency calculation.
+// A single-row table keeps the customer columns fast: they do not rescan 780k order lines per customer.
+Snapshot = ROW ( "SnapshotDate", MAX ( FactSales[InvoiceDate] ) + 1 )
+
+// Date table built from the data itself, so nothing is hard-coded to 2009 to 2011.
+DimDate =
+ADDCOLUMNS (
+    CALENDAR (
+        DATE ( YEAR ( MIN ( FactSales[InvoiceDate] ) ), 1, 1 ),
+        DATE ( YEAR ( MAX ( FactSales[InvoiceDate] ) ), 12, 31 )
+    ),
+    "Year", YEAR ( [Date] ),
+    "Month Number", MONTH ( [Date] ),
+    "Month", FORMAT ( [Date], "mmm yyyy" ),
+    "Year Month", FORMAT ( [Date], "yyyy-mm" )
+)
+// Then: sort DimDate[Month] by DimDate[Year Month]; mark DimDate as a date table on [Date].
+
+// Win-back what-if: the share of at-risk revenue you assume you can recover. A slicer on this table drives
+// [Recovered Revenue]. It is an assumption, never a result, and the report labels it that way.
+'Winback Rate' = GENERATESERIES ( 0, 0.5, 0.05 )
+
+// What to do for each segment (shown on the Segments page)
+'Segment Playbook' =
+DATATABLE (
+    "Segment", STRING,
+    "Who they are", STRING,
+    "What to do", STRING,
+    "Channel", STRING,
+    {
+        { "Champions", "Bought recently, often, and spend the most", "Protect them: early access, no discounts, ask for referrals", "Email, account manager" },
+        { "Loyal Customers", "Buy regularly and recently", "Grow basket size: bundles and higher-value cross-sells", "Email" },
+        { "Potential Loyalists", "Recent, low spend so far", "Nudge a second order within 30 days", "Email" },
+        { "New Customers", "Very recent, few orders", "Onboarding series and a reason to come back", "Email" },
+        { "Needs Attention", "Used to buy, going quiet", "Time-limited reminder before they lapse", "Email, SMS" },
+        { "At Risk", "High value, now quiet", "Personal outreach and a win-back offer", "Account manager, phone" },
+        { "Can't Lose Them", "Big spenders who stopped", "Highest-priority win-back: call, not a mass email", "Account manager, phone" },
+        { "Hibernating", "Low activity, low spend, quiet", "One low-cost reactivation, then stop spending on them", "Email" },
+        { "Lost", "Gone, low value", "Exclude from campaigns; keep for analysis", "None" }
+    }
+)
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// 2. CALCULATED COLUMNS ON FactSales  (Modeling > New column; create DimCustomer[FirstPurchase] first)
+// ---------------------------------------------------------------------------------------------------------------------
+
+// Date part of the order time: this is what relates to DimDate[Date]
+InvoiceDay = DATE ( YEAR ( FactSales[InvoiceDate] ), MONTH ( FactSales[InvoiceDate] ), DAY ( FactSales[InvoiceDate] ) )
+
+// Months between the customer's first purchase month and this order (0 = the acquisition month)
+PeriodNumber =
+( YEAR ( FactSales[InvoiceDate] ) - YEAR ( RELATED ( DimCustomer[CohortMonth] ) ) ) * 12
+    + MONTH ( FactSales[InvoiceDate] ) - MONTH ( RELATED ( DimCustomer[CohortMonth] ) )
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// 3. CALCULATED COLUMNS ON DimCustomer  (create in this order)
+//    RELATEDTABLE iterators are used instead of CALCULATE so the columns can reference each other
+//    without circular-dependency errors.
+// ---------------------------------------------------------------------------------------------------------------------
+
+FirstPurchase = MINX ( RELATEDTABLE ( FactSales ), FactSales[InvoiceDate] )
+
+LastPurchase = MAXX ( RELATEDTABLE ( FactSales ), FactSales[InvoiceDate] )
+
+CohortMonth = DATE ( YEAR ( DimCustomer[FirstPurchase] ), MONTH ( DimCustomer[FirstPurchase] ), 1 )
+
+Frequency =
+COUNTROWS ( DISTINCT ( SELECTCOLUMNS ( RELATEDTABLE ( FactSales ), "Invoice", FactSales[Invoice] ) ) )
+
+Monetary = SUMX ( RELATEDTABLE ( FactSales ), FactSales[Revenue] )
+
+// Whole days since the last order, as of the snapshot date (INT = whole 24-hour periods, as in pandas .dt.days)
+RecencyDays = INT ( MAX ( Snapshot[SnapshotDate] ) - DimCustomer[LastPurchase] )
+
+// Time of the customer's most recent ORDER: an order's time is the earliest line on its invoice, and the last
+// order is the latest of those. (Plain MAX of the lines can differ by minutes when one invoice's lines are
+// stamped at different times.) FILTER is used instead of CALCULATE to avoid circular dependencies.
+LastOrderTime =
+MAXX (
+    DISTINCT ( SELECTCOLUMNS ( RELATEDTABLE ( FactSales ), "Invoice", FactSales[Invoice] ) ),
+    MINX ( FILTER ( RELATEDTABLE ( FactSales ), FactSales[Invoice] = [Invoice] ), FactSales[InvoiceDate] )
+)
+
+// Average days between orders. With n orders, the n-1 gaps add up to (last order - first order), so the mean
+// needs no loop. A one-order customer has no gap, so their gap is their recency (same rule as the Python).
+AvgOrderGapDays =
+IF (
+    DimCustomer[Frequency] > 1,
+    DIVIDE ( DimCustomer[LastOrderTime] - DimCustomer[FirstPurchase], DimCustomer[Frequency] - 1 ),
+    DimCustomer[RecencyDays]
+)
+
+// Rank keys. The Python ranks with ties broken by customer order ("first"); adding CustomerID / 100000 reproduces
+// exactly that: it is always smaller than the smallest real difference between two values.
+RankKey_R = DimCustomer[RecencyDays] - DimCustomer[CustomerID] / 100000
+RankKey_F = DimCustomer[Frequency] + DimCustomer[CustomerID] / 100000
+RankKey_M = ROUND ( DimCustomer[Monetary] * 100, 0 ) + DimCustomer[CustomerID] / 100000
+
+// 1 to 5 quintile scores. Rank 1 of N goes in bin 1; bins are equal width over ranks 1..N (pandas qcut on ranks).
+// Recency is ranked high-days-first, so score 5 = bought most recently.
+R_Score =
+VAR N = COUNTROWS ( ALL ( DimCustomer ) )
+VAR Rnk = RANKX ( ALL ( DimCustomer ), DimCustomer[RankKey_R], , DESC, SKIP )
+RETURN MAX ( 1, ROUNDUP ( DIVIDE ( Rnk - 1, ( N - 1 ) / 5 ), 0 ) )
+
+F_Score =
+VAR N = COUNTROWS ( ALL ( DimCustomer ) )
+VAR Rnk = RANKX ( ALL ( DimCustomer ), DimCustomer[RankKey_F], , ASC, SKIP )
+RETURN MAX ( 1, ROUNDUP ( DIVIDE ( Rnk - 1, ( N - 1 ) / 5 ), 0 ) )
+
+M_Score =
+VAR N = COUNTROWS ( ALL ( DimCustomer ) )
+VAR Rnk = RANKX ( ALL ( DimCustomer ), DimCustomer[RankKey_M], , ASC, SKIP )
+RETURN MAX ( 1, ROUNDUP ( DIVIDE ( Rnk - 1, ( N - 1 ) / 5 ), 0 ) )
+
+// The standard RFM segment map; first matching rule wins (same order as the Python)
+Segment =
+VAR R = DimCustomer[R_Score]
+VAR F = DimCustomer[F_Score]
+VAR M = DimCustomer[M_Score]
+RETURN
+    SWITCH (
+        TRUE (),
+        R >= 4 && F >= 4 && M >= 4, "Champions",
+        R >= 3 && F >= 3, "Loyal Customers",
+        R >= 4 && F <= 2, "New Customers",
+        R >= 3 && F <= 2 && M <= 2, "Potential Loyalists",
+        R <= 2 && F >= 4 && M >= 4, "At Risk",
+        R <= 2 && F >= 3, "Needs Attention",
+        R <= 2 && F <= 2 && M >= 4, "Can't Lose Them",
+        R <= 2 && F <= 2, "Hibernating",
+        "Lost"
+    )
+
+// There is no churn label in this data, so risk is defined openly from behaviour (not a hidden model):
+// High risk = a repeat buyer (3+ orders) quiet for more than 1.5x their own usual gap between orders.
+ChurnRisk =
+SWITCH (
+    TRUE (),
+    DimCustomer[Frequency] >= 3 && DimCustomer[RecencyDays] > DimCustomer[AvgOrderGapDays] * 1.5, "High risk",
+    DimCustomer[R_Score] <= 2 && DimCustomer[Frequency] < 3, "Watch",
+    "Healthy"
+)
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// 4. MEASURES  (put them in a table called "_Measures": Home > Enter data, one empty column, then hide the column)
+// ---------------------------------------------------------------------------------------------------------------------
+
+Total Revenue = SUM ( FactSales[Revenue] )
+Orders = DISTINCTCOUNT ( FactSales[Invoice] )
+Customers = DISTINCTCOUNT ( FactSales[CustomerID] )
+Avg Order Value = DIVIDE ( [Total Revenue], [Orders] )
+
+Repeat Rate =
+DIVIDE ( CALCULATE ( [Customers], DimCustomer[Frequency] >= 2 ), [Customers] )
+
+Revenue Previous Month = CALCULATE ( [Total Revenue], DATEADD ( DimDate[Date], -1, MONTH ) )
+Revenue MoM % = DIVIDE ( [Total Revenue] - [Revenue Previous Month], [Revenue Previous Month] )
+
+// Segments and risk
+Segment Revenue Share = DIVIDE ( [Total Revenue], CALCULATE ( [Total Revenue], ALL ( DimCustomer[Segment] ) ) )
+High Risk Customers = CALCULATE ( [Customers], DimCustomer[ChurnRisk] = "High risk" )
+Revenue At Risk = CALCULATE ( [Total Revenue], DimCustomer[ChurnRisk] = "High risk" )
+Revenue At Risk % = DIVIDE ( [Revenue At Risk], CALCULATE ( [Total Revenue], ALL ( DimCustomer ) ) )
+
+// Cohort retention. Matrix: rows = DimCustomer[CohortMonth], columns = FactSales[PeriodNumber] (filter to 0..6).
+// Cohort Size overrides the column filter with PeriodNumber = 0, so every cell divides by the same denominator.
+Cohort Size = CALCULATE ( [Customers], FactSales[PeriodNumber] = 0 )
+Retention % = DIVIDE ( [Customers], [Cohort Size] )
+
+// What-if: label this card "Assumed recovery" on the page
+Winback Rate Selected = SELECTEDVALUE ( 'Winback Rate'[Value], 0.1 )
+Recovered Revenue = [Revenue At Risk] * [Winback Rate Selected]
+
+// Plain-language headline for the Executive page (updates with the slicers)
+Headline =
+"£" & FORMAT ( [Revenue At Risk] / 1000000, "0.0" ) & "M of revenue ("
+    & FORMAT ( [Revenue At Risk %], "0%" ) & ") sits with "
+    & FORMAT ( [High Risk Customers], "#,0" ) & " repeat customers who have gone quiet."

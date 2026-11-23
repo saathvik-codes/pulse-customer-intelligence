@@ -1397,13 +1397,13 @@
     "breakdown": [
       {
         "risk": "Healthy",
-        "customers": 3237,
-        "revenue": 13480087.47
+        "customers": 3238,
+        "revenue": 13485344.85
       },
       {
         "risk": "High risk",
-        "customers": 998,
-        "revenue": 3524024.02
+        "customers": 997,
+        "revenue": 3518766.64
       },
       {
         "risk": "Watch",
@@ -1411,7 +1411,7 @@
         "revenue": 739317.69
       }
     ],
-    "revenueAtRisk": 3524024.01,
+    "revenueAtRisk": 3518766.64,
     "topAtRisk": [
       {
         "customerId": "14156",

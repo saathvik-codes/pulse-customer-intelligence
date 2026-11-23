@@ -1,0 +1,13 @@
+metric,value
+total_revenue,17743429.18
+orders,36969
+customers,5878
+avg_order_value,479.95
+repeat_customers,4255
+repeat_rate_pct,72.4
+first_order,2009-12-01 07:45:00
+last_order,2011-12-09 12:50:00
+snapshot_date,2011-12-10 12:50:00
+high_risk_customers,997
+watch_customers,1643
+revenue_at_risk,3518766.64

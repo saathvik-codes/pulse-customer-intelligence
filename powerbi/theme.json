@@ -1,0 +1,29 @@
+{
+  "name": "Pulse",
+  "dataColors": ["#b4532a", "#2f6b66", "#c9962b", "#7a3114", "#cf8a5f", "#9c3b2e", "#a8a091", "#e3b99a"],
+  "background": "#fbf8f1",
+  "foreground": "#221d17",
+  "tableAccent": "#b4532a",
+  "good": "#2f6b66",
+  "neutral": "#c9962b",
+  "bad": "#9c3b2e",
+  "maximum": "#b4532a",
+  "center": "#e3b99a",
+  "minimum": "#f4eee2",
+  "textClasses": {
+    "title": { "fontFace": "Georgia", "fontSize": 14, "color": "#221d17" },
+    "label": { "fontFace": "Segoe UI", "fontSize": 10, "color": "#5e5548" },
+    "callout": { "fontFace": "Segoe UI Semibold", "fontSize": 28, "color": "#221d17" },
+    "header": { "fontFace": "Segoe UI Semibold", "fontSize": 11, "color": "#5e5548" }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#fbf8f1" } }, "transparency": 0 }],
+        "border": [{ "show": true, "color": { "solid": { "color": "#ddd2bd" } }, "radius": 6 }],
+        "title": [{ "fontFamily": "Georgia", "fontColor": { "solid": { "color": "#221d17" } } }]
+      },
+      "page": [{ "background": [{ "color": { "solid": { "color": "#f4eee2" } }, "transparency": 0 }] }]
+    }
+  }
+}

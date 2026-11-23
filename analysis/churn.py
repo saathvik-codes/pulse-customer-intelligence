@@ -19,7 +19,7 @@ def compute_churn_risk(transactions: pd.DataFrame, rfm: pd.DataFrame) -> pd.Data
     orders = transactions.sort_values("invoice_date").groupby(["customer_id", "invoice"])["invoice_date"].min().reset_index()
     gaps = (
         orders.groupby("customer_id")["invoice_date"]
-        .apply(lambda dates: dates.diff().dt.days.dropna().mean())
+        .apply(lambda dates: (dates.diff().dt.total_seconds() / 86400).dropna().mean())   # exact days between orders
         .rename("avg_order_gap_days")
     )
 

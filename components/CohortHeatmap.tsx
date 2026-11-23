@@ -20,9 +20,12 @@ export function CohortHeatmap() {
 
   return (
     <div className="card p-5">
-      <div className="mb-4">
-        <h2 className="text-sm font-semibold text-ink">Cohort Retention</h2>
-        <p className="text-xs text-muted">% of each acquisition cohort still buying N months after first purchase</p>
+      <div className="mb-4 flex items-start justify-between gap-4">
+        <div>
+          <h2 className="text-sm font-semibold text-ink">Cohort Retention</h2>
+          <p className="text-xs text-muted">% of each acquisition cohort still buying N months after first purchase</p>
+        </div>
+        <img src="/illustrations/pl-empty-cohorts.webp" alt="" width={112} height={78} className="hidden h-[78px] w-28 shrink-0 object-cover mix-blend-multiply sm:block" />
       </div>
       <div className="overflow-x-auto">
         <table className="w-full border-separate border-spacing-1 text-xs">

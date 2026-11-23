@@ -17,7 +17,7 @@ flag who's actually at risk of churning — with a number attached, not a vibe.
 **Headline findings** (full numbers in the dashboard):
 - **£17.7M** in revenue across **36,969 orders** from **5,878 customers**, Dec 2009 – Dec 2011
 - **72.4%** of customers are repeat buyers
-- The **Champions** segment (top 14% of customers by RFM score) drives
+- The **Champions** segment (22% of customers, 1,293 of 5,878, by RFM score) drives
   **£12.1M** — roughly 68% of all revenue, from a fraction of the base
 - **£3.5M in revenue sits with "high risk" customers** — repeat buyers who've
   gone quiet well past their own historical ordering rhythm
@@ -59,6 +59,17 @@ target that doesn't exist, churn risk is defined transparently:
 
 That's a rule I can defend in an interview, not a model whose reasoning I'd
 have to hand-wave. See `analysis/churn.py`.
+
+### Power BI version
+
+The same analysis is rebuilt in Power BI so the logic shows as DAX: a star schema (`FactSales`, `DimCustomer`,
+`DimProduct`, `DimDate`), RFM quintile scores, segment rules, cohort retention and churn flags written as calculated
+columns and measures. `analysis/check_dax_logic.py` replays those formulas on the exact tables the report loads and
+matches the Python pipeline for all 5,878 customers (scores, segments and churn risk).
+
+- Formulas: [`powerbi/measures.dax`](powerbi/measures.dax)
+- Step-by-step build, relationships and validation numbers: [`powerbi/BUILD_GUIDE.md`](powerbi/BUILD_GUIDE.md)
+- Theme: [`powerbi/theme.json`](powerbi/theme.json)
 
 ### The SQL layer
 `/analysis/sql` reimplements RFM scoring, cohort retention, and churn-risk

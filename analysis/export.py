@@ -138,6 +138,17 @@ def main() -> None:
     out_path.write_text(json.dumps(payload, indent=2))
     print(f"Wrote {out_path} ({out_path.stat().st_size / 1024:.0f} KB)")
 
+    # The app imports its copy from lib/data, and the customer lookup loads public/customers.json on demand
+    root = OUTPUT_DIR.parent.parent
+    (root / "lib" / "data" / "dashboard-data.json").write_text(json.dumps(payload, indent=2))
+    fields = ["id", "country", "r", "f", "m", "recencyDays", "orders", "spend", "segment", "risk"]
+    rows = [[r.customer_id, r.country, int(r.r_score), int(r.f_score), int(r.m_score), int(r.recency_days),
+             int(r.frequency), round(float(r.monetary), 2), r.segment, r.churn_risk]
+            for r in risk.itertuples()]
+    customers_path = root / "public" / "customers.json"
+    customers_path.write_text(json.dumps({"fields": fields, "rows": rows}, separators=(",", ":")))
+    print(f"Wrote {customers_path} ({customers_path.stat().st_size / 1024:.0f} KB, {len(rows):,} customers)")
+
 
 if __name__ == "__main__":
     main()

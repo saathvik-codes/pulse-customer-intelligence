@@ -4,7 +4,12 @@ import { KpiCards } from "@/components/KpiCards";
 import { RevenueTrend } from "@/components/RevenueTrend";
 import { SegmentBreakdown } from "@/components/SegmentBreakdown";
 import { TopLists } from "@/components/TopLists";
+import { CustomerLookup } from "@/components/CustomerLookup";
+import { Insight } from "@/components/Insight";
+import { Playbook } from "@/components/Playbook";
+import { WinBack } from "@/components/WinBack";
 import { dashboardData } from "@/lib/data";
+import { churnInsight, cohortInsight, revenueInsight, segmentInsight } from "@/lib/insights";
 
 export default function Home() {
   const { dateRange } = dashboardData.kpis;
@@ -30,15 +35,25 @@ export default function Home() {
           pipeline (pandas ETL, RFM scoring, cohort math, churn logic) lives in{" "}
           <code className="rounded bg-sand px-1.5 py-0.5 text-xs">/analysis</code>; this dashboard renders its output.
         </p>
+        <img src="/illustrations/pl-header-texture.webp" alt="" width={1200} height={200} className="mt-6 h-auto w-full max-w-3xl" />
       </header>
 
       <div className="space-y-5">
         <KpiCards />
+        <Insight>{revenueInsight()}</Insight>
         <RevenueTrend />
+        <Insight>{segmentInsight()}</Insight>
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
           <SegmentBreakdown />
           <ChurnPanel />
         </div>
+        <Insight>{churnInsight()}</Insight>
+        <Playbook />
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+          <WinBack />
+          <CustomerLookup />
+        </div>
+        <Insight>{cohortInsight()}</Insight>
         <CohortHeatmap />
         <TopLists />
       </div>

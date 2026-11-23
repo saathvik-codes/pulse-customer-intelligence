@@ -49,3 +49,6 @@ analysis/.venv/
 *.duckdb
 
 .vercel
+
+# Regenerate with analysis/export_powerbi.py (54 MB)
+powerbi/data/fact_sales.csv
