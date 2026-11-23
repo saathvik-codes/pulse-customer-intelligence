@@ -16,22 +16,22 @@ export function SegmentBreakdown() {
     <div className="card p-5">
       <div className="mb-4 flex items-start justify-between gap-3">
         <div>
-          <h2 className="text-sm font-semibold text-slate-900">RFM Customer Segments</h2>
-          <p className="text-xs text-slate-500">Recency · Frequency · Monetary quintile scoring, revenue by segment</p>
+          <h2 className="text-sm font-semibold text-ink">RFM Customer Segments</h2>
+          <p className="text-xs text-muted">Recency · Frequency · Monetary quintile scoring, revenue by segment</p>
         </div>
         <ExportButton filename="pulse-segments.csv" rows={segments} />
       </div>
       <ResponsiveContainer width="100%" height={280}>
         <BarChart data={segments} layout="vertical" margin={{ left: 8, right: 24 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#eef0f4" horizontal={false} />
-          <XAxis type="number" tickFormatter={(v) => formatGBP(v, true)} tick={{ fontSize: 11, fill: "#64748b" }} tickLine={false} axisLine={{ stroke: "#e5e7eb" }} />
-          <YAxis type="category" dataKey="segment" tick={{ fontSize: 11, fill: "#334155" }} tickLine={false} axisLine={false} width={120} />
+          <CartesianGrid strokeDasharray="3 3" stroke="#ebe2d0" horizontal={false} />
+          <XAxis type="number" tickFormatter={(v) => formatGBP(v, true)} tick={{ fontSize: 11, fill: "#8d8272" }} tickLine={false} axisLine={{ stroke: "#ddd2bd" }} />
+          <YAxis type="category" dataKey="segment" tick={{ fontSize: 11, fill: "#5e5548" }} tickLine={false} axisLine={false} width={120} />
           <Tooltip
             formatter={(value, _name, props) => [
               `${formatGBP(Number(value))} · ${formatNumber(props.payload.customers)} customers`,
               "Revenue",
             ]}
-            contentStyle={{ borderRadius: 12, border: "1px solid #e5e7eb", fontSize: 12 }}
+            contentStyle={{ borderRadius: 12, border: "1px solid #ddd2bd", fontSize: 12 }}
           />
           <Bar
             dataKey="revenue"
@@ -54,16 +54,16 @@ export function SegmentBreakdown() {
       </ResponsiveContainer>
 
       {active ? (
-        <div className="mt-3 flex items-center justify-between rounded-lg border border-indigo-100 bg-indigo-50/60 px-4 py-2.5 text-xs">
-          <span className="font-medium text-indigo-900">{active.segment}</span>
-          <span className="text-indigo-700">
+        <div className="mt-3 flex items-center justify-between rounded-md border border-line bg-accent-soft px-4 py-2.5 text-xs">
+          <span className="font-medium text-ink">{active.segment}</span>
+          <span className="text-accent">
             {formatNumber(active.customers)} customers &middot; {formatGBP(active.revenue, true)} &middot;{" "}
             {((active.revenue / totalRevenue) * 100).toFixed(1)}% of revenue &middot;{" "}
             {formatGBP(active.revenue / active.customers, true)}/customer
           </span>
         </div>
       ) : (
-        <p className="mt-3 text-[11px] text-slate-400">Click a segment to see its detail.</p>
+        <p className="mt-3 text-[11px] text-faint">Click a segment to see its detail.</p>
       )}
     </div>
   );

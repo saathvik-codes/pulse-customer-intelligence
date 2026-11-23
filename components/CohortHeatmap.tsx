@@ -10,27 +10,27 @@ export function CohortHeatmap() {
   }
 
   function bg(pct: number | undefined) {
-    if (pct === undefined) return "#f8fafc";
+    if (pct === undefined) return "#fbf8f1";
     const intensity = Math.min(pct / 60, 1);
-    const r = Math.round(238 - intensity * (238 - 79));
-    const g = Math.round(242 - intensity * (242 - 70));
-    const b = Math.round(255 - intensity * (255 - 229));
+    const r = Math.round(244 - intensity * (244 - 180));
+    const g = Math.round(238 - intensity * (238 - 83));
+    const b = Math.round(226 - intensity * (226 - 42));
     return `rgb(${r}, ${g}, ${b})`;
   }
 
   return (
     <div className="card p-5">
       <div className="mb-4">
-        <h2 className="text-sm font-semibold text-slate-900">Cohort Retention</h2>
-        <p className="text-xs text-slate-500">% of each acquisition cohort still buying N months after first purchase</p>
+        <h2 className="text-sm font-semibold text-ink">Cohort Retention</h2>
+        <p className="text-xs text-muted">% of each acquisition cohort still buying N months after first purchase</p>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full border-separate border-spacing-1 text-xs">
           <thead>
             <tr>
-              <th className="px-2 py-1 text-left font-medium text-slate-500">Cohort</th>
+              <th className="px-2 py-1 text-left font-medium text-muted">Cohort</th>
               {periods.map((p) => (
-                <th key={p} className="px-2 py-1 text-center font-medium text-slate-500">
+                <th key={p} className="px-2 py-1 text-center font-medium text-muted">
                   M{p}
                 </th>
               ))}
@@ -39,14 +39,14 @@ export function CohortHeatmap() {
           <tbody>
             {cohortMonths.map((cohort) => (
               <tr key={cohort}>
-                <td className="whitespace-nowrap px-2 py-1 font-medium text-slate-600">{cohort}</td>
+                <td className="whitespace-nowrap px-2 py-1 font-medium text-muted">{cohort}</td>
                 {periods.map((month) => {
                   const cell = cellFor(cohort, month);
                   return (
                     <td
                       key={month}
-                      className="rounded-md px-2 py-1.5 text-center font-semibold text-slate-700"
-                      style={{ background: bg(cell?.retention_pct) }}
+                      className="rounded-md px-2 py-1.5 text-center font-semibold"
+                      style={{ background: bg(cell?.retention_pct), color: (cell?.retention_pct ?? 0) >= 40 ? "#fff" : "#221d17" }}
                       title={cell ? `${cell.customers} of ${cell.size} customers` : undefined}
                     >
                       {cell ? `${cell.retention_pct}%` : ""}

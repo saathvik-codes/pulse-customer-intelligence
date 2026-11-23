@@ -11,8 +11,8 @@ export function ChurnPanel() {
     <div className="card p-5">
       <div className="mb-4 flex items-start justify-between gap-3">
         <div>
-          <h2 className="text-sm font-semibold text-slate-900">Churn Risk</h2>
-          <p className="text-xs text-slate-500">
+          <h2 className="text-sm font-semibold text-ink">Churn Risk</h2>
+          <p className="text-xs text-muted">
             Rule-based, not a black box: repeat customers (3+ orders) gone quiet 1.5x longer than their own average
             order gap are flagged &quot;High risk&quot;.
           </p>
@@ -27,29 +27,29 @@ export function ChurnPanel() {
                 <Cell key={entry.risk} fill={riskColor(entry.risk)} />
               ))}
             </Pie>
-            <Tooltip formatter={(value, _name, props) => [`${formatNumber(Number(value))} customers`, props.payload.risk]} contentStyle={{ borderRadius: 12, border: "1px solid #e5e7eb", fontSize: 12 }} />
+            <Tooltip formatter={(value, _name, props) => [`${formatNumber(Number(value))} customers`, props.payload.risk]} contentStyle={{ borderRadius: 12, border: "1px solid #ddd2bd", fontSize: 12 }} />
           </PieChart>
         </ResponsiveContainer>
 
         <div>
           <div className="mb-3 flex flex-wrap gap-3">
             {breakdown.map((b) => (
-              <span key={b.risk} className="inline-flex items-center gap-1.5 text-xs text-slate-600">
+              <span key={b.risk} className="inline-flex items-center gap-1.5 text-xs text-muted">
                 <span className="h-2.5 w-2.5 rounded-full" style={{ background: riskColor(b.risk) }} />
                 {b.risk} ({formatNumber(b.customers)})
               </span>
             ))}
           </div>
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">Highest-value at-risk customers</p>
-          <div className="max-h-48 overflow-y-auto rounded-lg border border-slate-100">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted">Highest-value at-risk customers</p>
+          <div className="max-h-48 overflow-y-auto rounded-md border border-line">
             <table className="w-full text-xs">
               <tbody>
                 {topAtRisk.slice(0, 8).map((c) => (
-                  <tr key={c.customerId} className="border-b border-slate-50 last:border-0">
-                    <td className="px-3 py-2 font-medium text-slate-700">#{c.customerId}</td>
-                    <td className="px-3 py-2 text-slate-500">{c.country}</td>
-                    <td className="px-3 py-2 text-slate-500">{c.recencyDays}d quiet</td>
-                    <td className="px-3 py-2 text-right font-semibold text-slate-700">{formatGBP(c.monetary, true)}</td>
+                  <tr key={c.customerId} className="border-b border-line last:border-0">
+                    <td className="px-3 py-2 font-medium text-muted">#{c.customerId}</td>
+                    <td className="px-3 py-2 text-muted">{c.country}</td>
+                    <td className="px-3 py-2 text-muted">{c.recencyDays}d quiet</td>
+                    <td className="px-3 py-2 text-right font-semibold text-muted">{formatGBP(c.monetary, true)}</td>
                   </tr>
                 ))}
               </tbody>

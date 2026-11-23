@@ -21,27 +21,27 @@ export function formatNumber(value: number): string {
 }
 
 const SEGMENT_COLORS: Record<string, string> = {
-  Champions: "#4f46e5",
-  "Loyal Customers": "#6366f1",
-  "Potential Loyalists": "#818cf8",
-  "New Customers": "#a5b4fc",
-  "Needs Attention": "#f59e0b",
-  "At Risk": "#f97316",
-  "Can't Lose Them": "#ef4444",
-  Hibernating: "#94a3b8",
-  Lost: "#cbd5e1",
+  Champions: "#7a3114",
+  "Loyal Customers": "#b4532a",
+  "Potential Loyalists": "#cf8a5f",
+  "New Customers": "#e3b99a",
+  "Needs Attention": "#c9962b",
+  "At Risk": "#9c3b2e",
+  "Can't Lose Them": "#5c1f19",
+  Hibernating: "#a8a091",
+  Lost: "#cfc7b5",
 };
 
 export function segmentColor(segment: string): string {
-  return SEGMENT_COLORS[segment] ?? "#94a3b8";
+  return SEGMENT_COLORS[segment] ?? "#a8a091";
 }
 
 const RISK_COLORS: Record<string, string> = {
-  Healthy: "#10b981",
-  Watch: "#f59e0b",
-  "High risk": "#ef4444",
+  Healthy: "#2f6b66",
+  Watch: "#c9962b",
+  "High risk": "#9c3b2e",
 };
 
 export function riskColor(risk: string): string {
-  return RISK_COLORS[risk] ?? "#94a3b8";
+  return RISK_COLORS[risk] ?? "#a8a091";
 }
