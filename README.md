@@ -4,7 +4,7 @@ A customer analytics platform built on two years of real e-commerce transaction
 data: RFM segmentation, monthly cohort retention, and rule-based churn-risk
 scoring, served through a live dashboard.
 
-**[Live demo →](https://pulse-customer-intelligence.vercel.app)**
+**[Live demo →](https://pulse-intel-red.vercel.app)**
 
 ## Why this exists
 
