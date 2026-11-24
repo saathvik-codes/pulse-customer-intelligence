@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-10 sm:px-6 lg:px-8">
-      <header className="mb-8">
+      <header className="relative mb-8">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Pulse · Customer Intelligence</p>
         <h1 className="mt-2 text-3xl font-medium tracking-tight text-ink sm:text-4xl">
           Two years of real transactions, turned into decisions.
@@ -35,7 +35,7 @@ export default function Home() {
           pipeline (pandas ETL, RFM scoring, cohort math, churn logic) lives in{" "}
           <code className="rounded bg-sand px-1.5 py-0.5 text-xs">/analysis</code>; this dashboard renders its output.
         </p>
-        <img src="/illustrations/pl-header-texture.webp" alt="" width={1200} height={200} className="mt-6 h-auto w-full max-w-3xl" />
+        <img src="/illustrations/pl-header-texture.webp" alt="" aria-hidden width={1200} height={200} className="pointer-events-none absolute bottom-0 right-0 hidden h-[78%] w-[44%] object-cover md:block [mask-image:radial-gradient(ellipse_closest-side,#000_40%,transparent_100%)] [-webkit-mask-image:radial-gradient(ellipse_closest-side,#000_40%,transparent_100%)]" />
       </header>
 
       <div className="space-y-5">
