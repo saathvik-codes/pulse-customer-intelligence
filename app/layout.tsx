@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Fraunces, IBM_Plex_Mono, Instrument_Sans } from "next/font/google";
+import { Instrument_Serif, JetBrains_Mono, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const instrument = Instrument_Sans({ variable: "--font-instrument", subsets: ["latin"] });
-const fraunces = Fraunces({ variable: "--font-fraunces", subsets: ["latin"], axes: ["opsz"] });
-const plexMono = IBM_Plex_Mono({ variable: "--font-plex-mono", subsets: ["latin"], weight: ["400", "500"] });
+const instrument = Hanken_Grotesk({ variable: "--font-instrument", subsets: ["latin"] });
+const fraunces = Instrument_Serif({ variable: "--font-fraunces", subsets: ["latin"], weight: "400" });
+const plexMono = JetBrains_Mono({ variable: "--font-plex-mono", subsets: ["latin"], weight: ["400", "500"] });
 
 export const metadata: Metadata = {
   title: "Pulse — Customer Intelligence Dashboard",
